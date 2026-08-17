@@ -1,0 +1,32 @@
+@startuml Use Case 
+
+skinparam actorStyle awesome
+left to right direction
+
+:User: 
+
+package "Main Use Cases"{
+    usecase (cadastrar entrada fixas) as UC1
+    usecase (cadastrar entrada variáveis) as UC2
+    usecase (cadastrar gastos variáveis) as UC3
+    usecase (cadastrar gastos fixos) as UC4
+    usecase (cadastrar cartões de cŕedito) as UC5
+    usecase (cadastrar compras feitas no cartão de crédito) as UC6
+}
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+
+package "Secondary Use Cases"{
+    usecase (Cadastrar metas) as UC1_SEC
+    usecase (Cadastrar valor investido nas metas) as UC2_SEC
+}
+
+User --> UC1_SEC
+User --> UC2_SEC
+
+@enduml
