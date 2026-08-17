@@ -5,14 +5,19 @@ left to right direction
 
 :User: 
 
-package "Main Use Cases"{
-    usecase (cadastrar entrada fixas) as UC1
-    usecase (cadastrar entrada variáveis) as UC2
-    usecase (cadastrar gastos variáveis) as UC3
-    usecase (cadastrar gastos fixos) as UC4
-    usecase (cadastrar cartões de cŕedito) as UC5
-    usecase (cadastrar compras feitas no cartão de crédito) as UC6
+package "Main Use Cases" as MUC{
+    usecase (Register fixed income) as UC1
+    usecase (Register variable income) as UC2
+    usecase (Register fixed expenses) as UC3
+    usecase (Register variable expenses) as UC4
+    usecase (Register credit cards) as UC5
+    usecase (Register credit cards purchases) as UC6
 }
+
+note right of MUC
+    The main use cases are the ones
+    that the application must have
+end note
 
 User --> UC1
 User --> UC2
@@ -21,10 +26,15 @@ User --> UC4
 User --> UC5
 User --> UC6
 
-package "Secondary Use Cases"{
-    usecase (Cadastrar metas) as UC1_SEC
-    usecase (Cadastrar valor investido nas metas) as UC2_SEC
+package "Secondary Use Cases" as SUC{
+    usecase (Register goals) as UC1_SEC
+    usecase (Register goals investments) as UC2_SEC
 }
+
+note right of SUC
+    The secondary use cases are the ones
+    that may be implemented later on
+end note
 
 User --> UC1_SEC
 User --> UC2_SEC
