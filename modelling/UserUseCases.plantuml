@@ -1,4 +1,4 @@
-@startuml Use Case 
+@startuml User Use Cases
 
 skinparam actorStyle awesome
 left to right direction

@@ -1,0 +1,55 @@
+@startuml User Interface - Class Diagram 
+
+left to right direction
+
+
+
+rectangle "home screen" as HS{
+    class "home screen"
+
+    class "Incomes"
+    class "Expenses"
+    class "Credit Card Invoice"
+    class "Balance"
+    
+
+    note right of "Expenses"
+        Displays:
+        - fixed expenses
+        - variable expenses
+        Interaction:
+        - allows the user to add variable expenses
+    end note 
+
+    note right of "Credit Card Invoice"
+        Should display:
+        - credit cards installments for current month
+        - credit card invoice for current month
+        Interaction:
+        - allows the user to add credit card purchase
+    end note 
+
+    note right of "Balance"
+        Displays the balance
+    end note 
+}
+
+note top of HS
+    The home screen should display
+    information about the current month by default
+
+    Perhaps there should be a navegation 
+    button to check previous months and
+    upcoming months!
+
+    But it may only display information about 
+    one month at a time
+end note 
+
+
+
+class "credit card management screen"
+
+
+
+@enduml
