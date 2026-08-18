@@ -1,0 +1,61 @@
+@startuml Model Package Class Diagram
+
+left to right direction
+
+rectangle "Essentials and less complex"{
+
+    class "Income"{
+        {field} name : String
+        {field} fixed : Boolean
+        {field} value : Double
+
+        {method} void set_name
+        {method} void set_fixed_status
+        {method} void set_value
+    }
+
+    class "Expense"{
+        {field} name : String
+        {field} fixed : Boolean
+        {field} value : Double
+
+        {method} void set_name
+        {method} void set_fixed_status
+        {method} void set_value
+    }
+
+    class "Balance"{
+        {field} value : Double
+    }
+    
+}
+
+rectangle "More complex"{
+    class "Credit Card"{
+        {field} name : String
+        {field} purchases : ArrayList<Purchase>
+    }
+
+    class "Purchase"{
+        {field} name : String
+        {field} total_price : Double
+        {field} number_of_installments : Int
+    }
+
+    note right of "Purchase"
+        The Purchase class represents
+        credit cards purchases.
+        It authomatically calculates 
+        each installment value based on
+        the product value and number of
+        installments.
+        It won't support installments
+        with interest (not yet).
+    end note 
+}
+
+
+
+
+
+@enduml
