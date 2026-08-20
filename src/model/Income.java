@@ -14,7 +14,7 @@ public class Income {
 
     // # Name setter and getter #
     public void set_name(String newName){
-        name.replace(0,name.length(), "newName");
+        name.replace(0,name.length(), newName);
     }
 
     public String get_name(){
