@@ -1,33 +1,51 @@
 @startuml Model Package Class Diagram
 
-left to right direction
+top to bottom direction
 
 rectangle "Essentials and less complex"{
 
     class "Income"{
-        {field} name : String
-        {field} fixed : Boolean
-        {field} value : Double
+        {field} - name : String
+        {field} - fixed : Boolean
+        {field} - value : Double
 
-        {method} void set_name
-        {method} void set_fixed_status
-        {method} void set_value
+        {method} + void set_name
+        {method} + void set_fixed_status
+        {method} + void set_value
     }
 
     class "Expense"{
-        {field} name : String
-        {field} fixed : Boolean
-        {field} value : Double
+        {field} -name : String
+        {field} -fixed : Boolean
+        {field} -value : Double
 
-        {method} void set_name
-        {method} void set_fixed_status
-        {method} void set_value
-    }
-
-    class "Balance"{
-        {field} value : Double
+        {method} +void set_name
+        {method} +void set_fixed_status
+        {method} +void set_value
     }
     
+    class "Month"{
+        {field} - incomes : ArrayList<Income>
+        {field} - expenses : ArrayList<Expense>
+        {field} - balance : Double
+        {method} + void add_income()
+        {method} + void rmv_income()
+        {method} + void add_expense()
+        {method} + void rmv_expense()
+    }
+
+    note bottom of "Month"
+        The methods related to incomes 
+        and expenses in the "Month" Class
+        only concerns its own incomes and
+        expenses.
+
+        Though its worth mentioning that
+        the action of add/rmv FIXED
+        income/expense affects other months, thus
+        is a "bigger" action that EVENTUALLY
+        leads to the calling of the said methods.
+    end note 
 }
 
 rectangle "More complex"{
@@ -42,7 +60,7 @@ rectangle "More complex"{
         {field} number_of_installments : Int
     }
 
-    note right of "Purchase"
+    note bottom of "Purchase"
         The Purchase class represents
         credit cards purchases.
         It authomatically calculates 
@@ -53,9 +71,6 @@ rectangle "More complex"{
         with interest (not yet).
     end note 
 }
-
-
-
 
 
 @enduml

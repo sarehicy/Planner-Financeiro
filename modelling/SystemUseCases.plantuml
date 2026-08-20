@@ -9,6 +9,7 @@ package "Main Use Cases"{
     usecase (Calculate final balance) as UC1
     usecase (Calculate credid card invoice) as UC2
     usecase (Save fixed incomes/expenses and apply them into every months planner) as UC3
+    usecase (Save variable incomes/expenses of the month)
 }
 
 System --> UC1
