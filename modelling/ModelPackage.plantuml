@@ -4,7 +4,7 @@ top to bottom direction
 
 rectangle "Essentials and less complex"{
 
-    class "Income"{
+    class "Transaction"{
         {field} - name : String
         {field} - fixed : Boolean
         {field} - value : Double
@@ -14,15 +14,23 @@ rectangle "Essentials and less complex"{
         {method} + void set_value
     }
 
-    class "Expense"{
-        {field} -name : String
-        {field} -fixed : Boolean
-        {field} -value : Double
+    note right of Transaction::name
+        Non-empty && non-blank string
+    end note
+    note right of Transaction::fixed
+        1 : Is fixed
+        0 : Is not fixed
+    end note 
+    note right of Transaction::value
+        Positive values only
+    end note 
 
-        {method} +void set_name
-        {method} +void set_fixed_status
-        {method} +void set_value
-    }
+    class "Income"
+    class "Expense"
+
+    Transaction <|-- Income : Inherits
+    Transaction <|-- Expense : Inherits
+
     
     class "Month"{
         {field} - incomes : ArrayList<Income>
