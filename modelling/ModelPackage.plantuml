@@ -22,7 +22,7 @@ rectangle "Essentials and less complex"{
         0 : Is not fixed
     end note 
     note right of Transaction::value
-        Positive values only
+        Non-negative values only
     end note 
 
     class "Income"
@@ -43,6 +43,9 @@ rectangle "Essentials and less complex"{
     }
 
     note bottom of "Month"
+        - The transactions of a month must
+        all have different UNIQUE names
+        ---
         The methods related to incomes 
         and expenses in the "Month" Class
         only concerns its own incomes and
