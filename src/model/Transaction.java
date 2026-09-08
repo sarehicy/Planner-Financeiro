@@ -2,7 +2,7 @@ package model;
 
 public class Transaction {
     private StringBuilder name; //I'm using a string builder instead of a string for efficiency
-    private Double value;
+    private double value;
     private Boolean fixed;
 
     // Class Constructor  ----------------------------------------------------------
