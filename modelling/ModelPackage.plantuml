@@ -7,7 +7,7 @@ rectangle "Essentials and less complex"{
     class "Transaction"{
         {field} - name : String
         {field} - fixed : Boolean
-        {field} - value : Double
+        {field} - value : double
 
         {method} + void set_name
         {method} + void set_fixed_status
@@ -35,11 +35,21 @@ rectangle "Essentials and less complex"{
     class "Month"{
         {field} - incomes : ArrayList<Income>
         {field} - expenses : ArrayList<Expense>
-        {field} - balance : Double
+        {field} - transactions : ArrayList<Transaction>
+        {field} - balance : double
+        {field} - totalIncome : double
+        {field} - totalExpense : double
+        __
         {method} + void add_income()
         {method} + void rmv_income()
         {method} + void add_expense()
         {method} + void rmv_expense()
+        .. aux methods ..
+        {method} - int findTransaction()
+        {method} - void insertionSortTransaction()
+        {method} - void calculateTotalIncome()
+        {method} - void calculateTotalExpense()
+        {method} - void calculateBalance()
     }
 
     note bottom of "Month"
@@ -67,7 +77,7 @@ rectangle "More complex"{
 
     class "Purchase"{
         {field} name : String
-        {field} total_price : Double
+        {field} total_price : double
         {field} number_of_installments : Int
     }
 
