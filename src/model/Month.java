@@ -10,6 +10,7 @@ public class Month {
     private double totalExpense;
     private double balance;
 
+    // # Constructor -----------------------------------------------------------
     public Month(){
         incomes = new ArrayList<>();
         expenses = new ArrayList<>();
@@ -29,12 +30,13 @@ public class Month {
         }
 
         incomes.add(newIncome);
-
+        addTransaction(newIncome);
         calculateBalance();
     }
 
     public void rmvIncome(Income incomeToRmv){
         incomes.remove(incomeToRmv);
+        transactions.remove(incomeToRmv);
         calculateBalance();
     }
 
@@ -47,15 +49,28 @@ public class Month {
         }
 
         expenses.add(newExpense);
+        addTransaction(newExpense);
         calculateBalance();
     }
 
     public void rmvExpense(Expense expenseToRmv){
         expenses.remove(expenseToRmv);
+        transactions.remove(expenseToRmv);
         calculateBalance();
     }
 
-    // Aux methods -----------------------------------------------------------------
+    // # Getters and Setters -------------------------------------------------------
+    public double getTotalIncome(){
+        return totalIncome;
+    }
+    public double getTotalExpense(){
+        return totalExpense;
+    }
+    public double getBalance(){
+        return balance;
+    }
+
+    // # Private Aux methods -------------------------------------------------------
     private void calculateTotalIncome(){
         double aux = 0.0;
 
@@ -86,6 +101,11 @@ public class Month {
     }
 
     private int findTransaction(String transactionName){
+        /* Binary Search to Find Transaction By Its Name
+            Returns the transaction index if it is found;
+            Returns -1 if the transaction isn't found;
+        */
+
         int start = 0;
         int end = transactions.size() -1;
         int mid = (start + end)/2;
@@ -107,9 +127,14 @@ public class Month {
             mid = (start + end)/2;
         }
         
-        // income not found
+        // transaction not found
         return -1;
     }
  
-    
+    private void addTransaction(Transaction newTransaction){
+        transactions.add(newTransaction);
+
+        // Sorting transactions by their name
+        transactions.sort((Transaction a, Transaction b) -> a.get_name().compareTo(b.get_name()));
+    }
 }
