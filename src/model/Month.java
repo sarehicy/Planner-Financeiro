@@ -63,9 +63,11 @@ public class Month {
     public double getTotalIncome(){
         return totalIncome;
     }
+    
     public double getTotalExpense(){
         return totalExpense;
     }
+    
     public double getBalance(){
         return balance;
     }

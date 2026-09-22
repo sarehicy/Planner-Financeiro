@@ -44,9 +44,13 @@ rectangle "Essentials and less complex"{
         {method} + void rmv_income()
         {method} + void add_expense()
         {method} + void rmv_expense()
+        .. getters and setters ..
+        {method} + double getTotalIncome()
+        {method} + double getTotalExpense()
+        {method} + double getBalance()
         .. aux methods ..
         {method} - int findTransaction()
-        {method} - void insertionSortTransaction()
+        {method} - void addTransaction()
         {method} - void calculateTotalIncome()
         {method} - void calculateTotalExpense()
         {method} - void calculateBalance()
